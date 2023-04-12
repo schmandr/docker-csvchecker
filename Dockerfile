@@ -28,6 +28,13 @@ RUN sed -i -E \
     -e "$ a ErrorLog \"|\/bin\/cat\"" \
     /etc/apache2/conf-available/other-vhosts-access-log.conf
 
+# Configure and enable csvchecker
+COPY --chmod=644 csvchecker.conf /etc/apache2/sites-available/
+RUN a2ensite csvchecker
+RUN mkdir --parents /app/documents /app/wsgi-scripts/checker
+COPY --chmod=644 python/checker.wsgi /app/wsgi-scripts/
+COPY --chmod=644 python/checker/* /app/wsgi-scripts/checker/
+
 EXPOSE 8080
 
 USER $UID
