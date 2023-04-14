@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:buster
 
 ENV HOME=/home/appuser
 ARG UID=999
@@ -7,7 +7,7 @@ RUN useradd --system --uid $UID --gid 0 appuser && \
 
 RUN apt-get update && \
     apt-get install --assume-yes --no-install-recommends \
-      apache2 ca-certificates libapache2-mod-wsgi-py3 && \
+      apache2 libapache2-mod-wsgi python-webob python-psycopg2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
