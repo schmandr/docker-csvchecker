@@ -5,7 +5,7 @@
 import cgi, os, sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
-sys.path.append("{{ isboden_rest_services }}")
+sys.path.append("/app/wsgi-scripts")
 from webob import Request
 from webob import Response
 import time
@@ -37,7 +37,7 @@ def application(environ, start_response):
         #try:
         file_name = random_name()
         file_data = request.params["myfile"].value
-        fp = open('/var/www/tmp/' + file_name + '.itf','wb')
+        fp = open('/tmp/' + file_name + '.itf','wb')
         fp.write(file_data)
         fp.close()
         message = u'erfolgreiches uploaden der datei ' + file_name            
@@ -51,7 +51,7 @@ def application(environ, start_response):
             #'The database connection arguments do not seem to be correct!'
 
         csvchecker = csv_checker.CsvChecker(cur)
-        arr_message = csvchecker.check('csv', '/var/www/tmp/' + file_name + '.itf')
+        arr_message = csvchecker.check('csv', '/tmp/' + file_name + '.itf')
         del csvchecker 
         message = u'<ol>'
         for myerror in arr_message:
