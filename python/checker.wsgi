@@ -43,7 +43,7 @@ def application(environ, start_response):
         message = u'erfolgreiches uploaden der datei ' + file_name            
         # db
         try:
-            conn = psycopg2.connect('service=sogis_webmapping')
+            conn = psycopg2.connect('') # pass connection parameters as PostgreSQL libpq env vars
             conn.set_isolation_level(0)
             cur = conn.cursor()
         except:
