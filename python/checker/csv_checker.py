@@ -1318,9 +1318,9 @@ Die Datei muss Tabulatorgetrennt mit einem (\")-Zeichen als Escape-Sequenz sein.
                 str_kartierer = str_kartierer.decode('utf-8', 'replace')
                 sql = """
                         SELECT COUNT(*) AS anz_kartierer 
-                        FROM %s.kartiererin_v
+                        FROM kartiererin
                         WHERE name LIKE \'%s%%\'
-                      """ % (self.dbschema,  str_kartierer)
+                      """ % (str_kartierer)
                 self.cur.execute(sql)
                 rows = self.cur.fetchall()
                 if rows[0][0] == 0:
@@ -1350,8 +1350,8 @@ Die Datei muss Tabulatorgetrennt mit einem (\")-Zeichen als Escape-Sequenz sein.
                 if self.is_float(str_gemnr):
                     sql = """
                             SELECT COUNT(*) AS anz_gemeinden 
-                            FROM public.geo_gemeinden
-                            WHERE gem_bfs = %s
+                            FROM gemeindegrenzen_gemeinde
+                            WHERE bfsnr = %s
                           """ % str_gemnr
                     self.cur.execute(sql)
                     rows = self.cur.fetchall()
