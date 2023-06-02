@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  csvchecker:
+    build: .
+    image: sogis/csvchecker:latest
+    environment:
+      PGHOST: db
+      PGDATABASE: csvchecker
+      PGUSER: user
+      PGPASSWORD: password
+      APACHE_ACCESS_LOG_ENABLED: true
+    ports:
+      - "8282:8080"
+  db:
+    image: bitnami/postgresql:14
+    environment:
+      POSTGRESQL_DATABASE: csvchecker
+      POSTGRESQL_USERNAME: user
+      POSTGRESQL_PASSWORD: password
+    volumes:
+      - type: volume
+        source: postgresql_data
+        target: /bitnami/postgresql
+volumes:
+  postgresql_data:
