@@ -2,7 +2,7 @@ version: "3.2"
 services:
   csvchecker:
     build: .
-    image: sogis/csvchecker:localbuild
+    image: sogis/csvchecker:latest
     environment:
       PGHOST: db
       PGDATABASE: csvchecker
