@@ -2,13 +2,15 @@ SET application_name="container_setup";
 
 BEGIN;
 
+DROP TABLE IF EXISTS kartiererin;
+DROP TABLE IF EXISTS gemeindegrenzen_gemeinde;
+
+
 CREATE TABLE kartiererin (
     pk_kartiererin integer PRIMARY KEY,
     name character varying(200) NOT NULL,
     kuerzel character varying(100) NOT NULL
 );
-
-
 CREATE TABLE gemeindegrenzen_gemeinde (
     t_id bigint PRIMARY KEY,
     t_basket bigint NOT NULL,
@@ -146,7 +148,6 @@ INSERT INTO kartiererin VALUES (761, 'Vögtli', 'vö');
 INSERT INTO kartiererin VALUES (762, 'Vögtli/Döring', 'vö/dö');
 INSERT INTO kartiererin VALUES (763, 'Hunziker/Vögtli', 'ho/vö');
 INSERT INTO kartiererin VALUES (764, 'Eggert/Döring', 'eg/dö');
-
 
 INSERT INTO gemeindegrenzen_gemeinde VALUES (1200612312, 1200611894, '2406', 'Oberbuchsiten', 2406);
 INSERT INTO gemeindegrenzen_gemeinde VALUES (1200731657, 1200730591, '2421', 'Aedermannsdorf', 2421);

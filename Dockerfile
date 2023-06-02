@@ -7,9 +7,10 @@ RUN useradd --system --uid $UID --gid 0 appuser && \
 
 RUN apt-get update && \
     apt-get install --assume-yes --no-install-recommends \
-      apache2 libapache2-mod-wsgi python-webob python-psycopg2 && \
+      apache2 libapache2-mod-wsgi python-webob python-psycopg2 postgresql-client && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+COPY --chmod=755 wait-for-it.sh /opt/
 
 # Configuration for running Apache as non-root user
 RUN mkdir --parents /var/run/apache2/socks /var/run/lock/apache2 && \
@@ -35,8 +36,16 @@ RUN mkdir --parents /app/documents /app/wsgi-scripts/checker
 COPY --chmod=644 python/checker.wsgi /app/wsgi-scripts/
 COPY --chmod=644 python/checker/* /app/wsgi-scripts/checker/
 
+## Provide scripts for initializing DB
+COPY --chmod=755 initialize-database.sh $HOME
+COPY --chmod=644 setup.sql $HOME
+
 EXPOSE 8080
 
 USER $UID
+
+WORKDIR $HOME
+
+ENTRYPOINT ["./initialize-database.sh"]
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

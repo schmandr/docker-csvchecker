@@ -21,8 +21,5 @@ services:
       - type: volume
         source: postgresql_data
         target: /bitnami/postgresql
-      - type: bind
-        source: ./db_initdb
-        target: /docker-entrypoint-initdb.d
 volumes:
   postgresql_data:
