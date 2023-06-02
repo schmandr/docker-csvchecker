@@ -1,5 +1,5 @@
-# docker-csvchecker
-Docker image containing a checker for soil unit data CSV files
+# CSV Checker
+Checker for soil unit data CSV files
 
 ## Build image
 
