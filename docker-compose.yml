@@ -4,14 +4,14 @@ services:
     build: .
     image: sogis/csvchecker:latest
     environment:
-      PGHOST: db
+      PGHOST: database
       PGDATABASE: csvchecker
       PGUSER: user
       PGPASSWORD: password
       APACHE_ACCESS_LOG_ENABLED: true
     ports:
       - "8282:8080"
-  db:
+  database:
     image: bitnami/postgresql:14
     environment:
       POSTGRESQL_DATABASE: csvchecker
