@@ -20,3 +20,5 @@ it is recommended to run it using Docker Compose:
 ```
 docker compose up
 ```
+
+The application is then available at http://localhost:8282/csvchecker
