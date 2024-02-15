@@ -163,6 +163,7 @@ INSERT INTO kartiererin VALUES (776, 'Kaufmann', 'GK');
 INSERT INTO kartiererin VALUES (777, 'Gasche/Baumer', 'ga/ba');
 INSERT INTO kartiererin VALUES (778, 'Lazzini/Baumgarten', 'laz/bb');
 INSERT INTO kartiererin VALUES (779, 'Baumgarten/Gasche', 'bb/ga');
+INSERT INTO kartiererin VALUES (780, 'Flury/Kaufmann', 'sf/GK');
 
 INSERT INTO gemeindegrenzen_gemeinde VALUES (1200612312, 1200611894, '2406', 'Oberbuchsiten', 2406);
 INSERT INTO gemeindegrenzen_gemeinde VALUES (1200731657, 1200730591, '2421', 'Aedermannsdorf', 2421);
