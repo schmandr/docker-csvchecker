@@ -73,7 +73,7 @@ INSERT INTO kartiererin VALUES (692, 'Schmidhauser/Ramseier', 'as/ra');
 INSERT INTO kartiererin VALUES (693, 'Rohr/Kuster', 'Ro/EK');
 INSERT INTO kartiererin VALUES (679, 'Schmidhauser/Wernli', 'as/mw');
 INSERT INTO kartiererin VALUES (696, 'Ruef/Margreth', 'AR/MM');
-INSERT INTO kartiererin VALUES (694, 'Knecht/Baumgartner/Felder', 'MK/KB/sfee');
+INSERT INTO kartiererin VALUES (694, 'Knecht/Baumgartner/Felder', 'MK/KB/sfe');
 INSERT INTO kartiererin VALUES (691, 'Gasche/Schmidhauser/Ramseier', 'ga/as/ra');
 INSERT INTO kartiererin VALUES (674, 'Gasche/Margreth/Schmidhauser', 'ga/mm/as');
 INSERT INTO kartiererin VALUES (680, 'Ruef/Busin/Wernli', 'AR/UB/MW');
